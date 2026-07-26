@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#064f49">
+<title>Trigonometry Basics Reviewer & Quiz</title>
+<style>
+:root{
+  --green:#064f49;--green2:#033c38;--mint:#d9f3e8;--teal:#0f766e;--paper:#fffefb;
+  --bg:#edf7f3;--text:#173c38;--muted:#647b78;--line:#d2e4de;--gold:#e3a629;
+  --red:#b4233d;--good:#167a50;--shadow:0 16px 44px rgba(6,79,73,.13);--radius:20px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:linear-gradient(135deg,#eaf7f2 0%,#f8fbfa 55%,#fff7e3 100%)}
+button,input,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.shell{max-width:1200px;margin:auto;padding:14px}
+.topbar{position:sticky;top:0;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:16px;background:rgba(255,254,251,.94);backdrop-filter:blur(12px);box-shadow:var(--shadow)}
+.brand{display:flex;align-items:center;gap:11px}.logo{width:46px;height:46px;border-radius:14px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:950}
+.brand h1{font-size:1rem;margin:0}.brand small{color:var(--muted)}.nav{display:flex;gap:7px;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:10px 14px;font-weight:850;transition:.18s}.btn:hover{transform:translateY(-1px)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.primary{background:var(--green);color:#fff}.secondary{background:#e2f2ec;color:var(--green)}.outline{background:#fff;color:var(--text);border:1px solid var(--line)}.warning{background:#fff0c9;color:#765000}.danger{background:#ffe4e8;color:#8e1730}
+.screen{margin-top:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.hero-main{min-height:425px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 90% 8%,rgba(227,166,41,.20),transparent 24%),radial-gradient(circle at 12% 85%,rgba(15,118,110,.16),transparent 29%),#fff}
+.eyebrow{display:inline-flex;width:max-content;padding:7px 11px;border-radius:999px;background:#dcefe8;color:var(--green);font-size:.8rem;font-weight:900}
+h2{font-size:clamp(2.25rem,6vw,4.8rem);line-height:.97;letter-spacing:-.055em;margin:16px 0 12px}h3{margin-top:0}p{line-height:1.65}.muted{color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{padding:7px 10px;border-radius:999px;background:#f2f7f5;border:1px solid var(--line);font-size:.8rem;font-weight:800}
+.count-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.count{padding:13px;border:1px solid var(--line);border-radius:14px;background:#f3f8f6}.count span{display:block;color:var(--muted);font-size:.74rem}.count strong{font-size:1.35rem}
+.priority-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.priority{padding:16px;border:1px solid var(--line);border-radius:15px;background:#fff}.priority.high{border-top:5px solid var(--red)}.priority.medium{border-top:5px solid var(--gold)}.priority strong{display:block;margin-bottom:6px}
+details.lesson{margin:12px 0;border:1px solid var(--line);border-radius:17px;overflow:hidden;background:#fff}details.lesson>summary{padding:17px 19px;cursor:pointer;list-style:none;font-size:1.08rem;font-weight:900;background:#f5faf8}details.lesson>summary::-webkit-details-marker{display:none}.lesson-body{padding:18px}
+.formula-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.formula{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fbfdfc}.formula strong{display:block;color:var(--green);margin-bottom:7px}.math{font-family:"Cambria Math","Times New Roman",serif;font-size:1.08rem}.example{margin-top:9px;padding:10px 12px;background:#ecf7f3;border-left:4px solid var(--teal);border-radius:8px}
+.alert{padding:15px;border-radius:14px;border:1px solid #e4c67c;background:#fff4dc;line-height:1.6}
+.visual-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.visual{padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.visual svg{width:100%;height:230px;background:#fbfdfc;border-radius:10px}
+.steps{counter-reset:step;display:grid;gap:10px}.step{position:relative;padding:13px 13px 13px 50px;border:1px solid var(--line);border-radius:13px;background:#fff}.step:before{counter-increment:step;content:counter(step);position:absolute;left:13px;top:11px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900}
+.checklist{display:grid;gap:9px}.checkitem{display:flex;gap:10px;align-items:flex-start;padding:11px;border:1px solid var(--line);border-radius:12px;background:#fff}.checkitem input{margin-top:4px;accent-color:var(--green)}
+.setup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field label{display:block;font-weight:850;margin-bottom:7px}select,input[type=text]{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--text);outline:0}select:focus,input[type=text]:focus{border-color:var(--teal);box-shadow:0 0 0 4px rgba(15,118,110,.16)}
+.toggle-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px 0}.switch{position:relative;width:50px;height:28px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;inset:0;border-radius:99px;background:#c8d7d2;transition:.2s}.slider:before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#fff;border-radius:50%;box-shadow:0 2px 7px rgba(0,0,0,.2);transition:.2s}.switch input:checked+.slider{background:var(--green)}.switch input:checked+.slider:before{transform:translateX(22px)}
+.quiz-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:18px}.sidebar{position:sticky;top:88px;height:max-content}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{padding:12px;border:1px solid var(--line);border-radius:13px;background:#f3f8f6}.stat span{display:block;font-size:.72rem;color:var(--muted)}.stat strong{font-size:1.05rem}.timer.danger{color:var(--red);animation:pulse 1s infinite}@keyframes pulse{50%{opacity:.5}}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:14px;max-height:365px;overflow:auto}.qnav{min-height:36px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--muted);font-weight:850}.qnav.current{border-color:var(--green);outline:3px solid rgba(6,79,73,.14);color:var(--green)}.qnav.answered{background:#dceee8;color:var(--green);border-color:#9fc8ba}.qnav.flagged{box-shadow:inset 0 -4px 0 var(--gold)}
+.qcard{min-height:540px}.qhead{display:flex;justify-content:space-between;gap:10px;padding-bottom:15px;border-bottom:1px solid var(--line)}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{padding:6px 9px;border-radius:999px;background:#e7f1ed;color:var(--green);font-size:.73rem;font-weight:900}.tag.hot{background:#ffe4e8;color:#991b34}.question{font-size:1.3rem;line-height:1.55;margin:24px 0 18px}
+.options{display:grid;gap:11px}.option{display:flex;gap:11px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}.option:hover{border-color:var(--teal);background:#f8fcfa}.option.selected{border-color:var(--green);background:#eaf4f0;box-shadow:0 0 0 3px rgba(6,79,73,.1)}.option.correct{border-color:#51b486;background:#eaf8f1}.option.wrong{border-color:#e47789;background:#fff0f2}.option input{margin-top:4px}
+.feedback{margin-top:17px;padding:14px;border-radius:14px;line-height:1.55}.feedback.good{background:#e9f9f0;border:1px solid #79cca8;color:#14623f}.feedback.bad{background:#fff0f2;border:1px solid #eda0ad;color:#8b2033}
+.qactions{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--line);padding-top:18px;margin-top:26px}.actions{display:flex;gap:8px;flex-wrap:wrap}
+.score-wrap{text-align:center}.score-ring{--angle:0deg;width:160px;height:160px;border-radius:50%;margin:12px auto;display:grid;place-items:center;background:conic-gradient(var(--green) var(--angle),#e2ebe7 0);position:relative}.score-ring:before{content:"";position:absolute;inset:14px;background:#fff;border-radius:50%}.score-ring strong{position:relative;font-size:2.1rem}
+.result-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}.break-row{display:grid;grid-template-columns:150px 1fr 55px;align-items:center;gap:9px;margin:9px 0}.bar{height:10px;background:#e2ebe7;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--green)}
+.review-list{display:grid;gap:12px;margin-top:14px}.review-item{padding:16px;border:1px solid var(--line);border-left:6px solid var(--red);border-radius:14px;background:#fff}.review-item.good{border-left-color:var(--good)}.review-item h4{margin:0 0 8px;line-height:1.5}.review-item p{margin:5px 0;color:var(--muted);line-height:1.55}
+footer{text-align:center;padding:27px 8px 5px;color:var(--muted);font-size:.83rem}
+@media(max-width:920px){.hero,.quiz-layout{grid-template-columns:1fr}.sidebar{position:static}.palette{grid-template-columns:repeat(10,1fr);max-height:none}.priority-grid,.visual-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.shell{padding:8px}.brand small{display:none}.nav .btn span{display:none}.card{padding:17px}.count-grid,.formula-grid,.setup-grid,.result-stats,.breakdown{grid-template-columns:1fr}.palette{grid-template-columns:repeat(7,1fr)}.qhead,.qactions{flex-direction:column;align-items:stretch}.actions{width:100%}.actions .btn{flex:1}.break-row{grid-template-columns:115px 1fr 45px}}
+@media print{.topbar,.sidebar,.qactions,.result-actions,footer{display:none!important}body{background:#fff}.shell{max-width:none}.card{box-shadow:none}.review-item{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <div class="brand"><div class="logo">TR</div><div><h1>Trigonometry Basics Master</h1><small>Reviewer + high-probability quiz</small></div></div>
+  <nav class="nav"><button class="btn outline" data-go="home">⌂ <span>Home</span></button><button class="btn outline" data-go="reviewer">📘 <span>Reviewer</span></button><button class="btn primary" data-go="setup">✎ <span>Quiz</span></button></nav>
+</header>
+
+<main>
+<section id="homeScreen" class="screen">
+  <div class="hero">
+    <article class="card hero-main">
+      <span class="eyebrow">14-PAGE PRE-CALCULUS REVIEWER</span>
+      <h2>Convert angles. Use SOH-CAH-TOA. Solve right triangles.</h2>
+      <p class="muted">This web app follows the PDF's three lessons: angles, degrees and radians; sine, cosine and tangent; and right-triangle trigonometry with the Pythagorean Theorem.</p>
+      <div class="chips"><span class="chip">Angle Types</span><span class="chip">Degrees</span><span class="chip">Radians</span><span class="chip">SOH-CAH-TOA</span><span class="chip">Reciprocal Ratios</span><span class="chip">Right Triangles</span><span class="chip">Pythagorean Theorem</span></div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:22px"><button class="btn primary" data-go="reviewer">Open Reviewer</button><button class="btn secondary" data-go="setup">Take the Quiz</button></div>
+    </article>
+    <aside class="card">
+      <h3>Question Bank</h3><p class="muted">Every item includes the correct answer and a short solution.</p>
+      <div class="count-grid"><div class="count"><span>Multiple Choice</span><strong>25</strong></div><div class="count"><span>True or False</span><strong>15</strong></div><div class="count"><span>Identification</span><strong>15</strong></div><div class="count"><span>Problem Solving</span><strong>25</strong></div></div>
+      <div class="count" style="margin-top:10px"><span>Total Quiz Bank</span><strong>80 items</strong></div>
+    </aside>
+  </div>
+</section>
+
+<section id="reviewerScreen" class="screen hidden">
+  <div class="card">
+    <span class="eyebrow">EXAM-FOCUSED REVIEWER</span>
+    <h2 style="font-size:clamp(2rem,5vw,3.6rem)">Most probable exam skills</h2>
+    <p class="muted">The objective on page 2 specifically targets degree-radian conversion, SOH-CAH-TOA, and solving right-triangle problems.</p>
+    <div class="priority-grid">
+      <div class="priority high"><strong>Very High Probability</strong><span class="muted">Convert degrees to radians and radians to degrees.</span></div>
+      <div class="priority high"><strong>Very High Probability</strong><span class="muted">Choose sine, cosine, or tangent from the known and unknown sides.</span></div>
+      <div class="priority high"><strong>Very High Probability</strong><span class="muted">Find a missing side using SOH-CAH-TOA or the Pythagorean Theorem.</span></div>
+      <div class="priority medium"><strong>High Probability</strong><span class="muted">Identify angle types, vertex, hypotenuse, opposite, and adjacent sides.</span></div>
+      <div class="priority medium"><strong>High Probability</strong><span class="muted">Recall reciprocal ratios: cosecant, secant, and cotangent.</span></div>
+      <div class="priority medium"><strong>High Probability</strong><span class="muted">Use the fact that the two acute angles of a right triangle add to 90°.</span></div>
+    </div>
+  </div>
+
+  <details class="lesson" open>
+    <summary>1. Angles, degrees, and radians - PDF pages 3-7</summary>
+    <div class="lesson-body">
+      <div class="formula-grid">
+        <div class="formula"><strong>Angle</strong><div class="math">Two rays meeting at a common endpoint</div><div class="example">The common endpoint is the vertex.</div></div>
+        <div class="formula"><strong>Degree</strong><div class="math">1 complete revolution=360°</div><div class="example">The degree symbol is °.</div></div>
+        <div class="formula"><strong>Radian</strong><div class="math">1 complete revolution=2π rad</div><div class="example">Radians are another unit for measuring angles.</div></div>
+        <div class="formula"><strong>Key Equivalence</strong><div class="math">180°=π radians</div><div class="example">This equality creates both conversion factors.</div></div>
+        <div class="formula"><strong>Degrees to Radians</strong><div class="math">radians=degrees×π/180</div><div class="example">60°×π/180=π/3.</div></div>
+        <div class="formula"><strong>Radians to Degrees</strong><div class="math">degrees=radians×180/π</div><div class="example">(π/4)×180/π=45°.</div></div>
+      </div>
+      <div class="visual-grid" style="margin-top:12px">
+        <div class="visual">
+          <strong>Angle structure</strong>
+          <svg viewBox="0 0 320 230" aria-label="Two rays meeting at a vertex">
+            <line x1="55" y1="180" x2="275" y2="180" stroke="#173c38" stroke-width="4"/>
+            <line x1="55" y1="180" x2="210" y2="45" stroke="#173c38" stroke-width="4"/>
+            <circle cx="55" cy="180" r="7" fill="#e3a629"/>
+            <path d="M110 180 A55 55 0 0 0 94 143" fill="none" stroke="#0f766e" stroke-width="4"/>
+            <text x="25" y="207" font-size="16">Vertex</text><text x="215" y="198" font-size="16">Ray 2</text><text x="165" y="50" font-size="16">Ray 1</text><text x="102" y="150" font-size="18">θ</text>
+          </svg>
+        </div>
+        <div class="visual">
+          <strong>Angle types shown on page 5</strong>
+          <div class="chips" style="margin-top:14px"><span class="chip">Acute</span><span class="chip">Right</span><span class="chip">Obtuse</span><span class="chip">Straight</span><span class="chip">Reflex</span><span class="chip">Full Rotation</span></div>
+          <div class="alert" style="margin-top:16px"><strong>Recognition tip:</strong> Compare the opening with a right angle, a straight line, or a complete turn.</div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary>2. Sine, cosine, tangent, and reciprocal ratios - PDF pages 8-10</summary>
+    <div class="lesson-body">
+      <div class="formula-grid">
+        <div class="formula"><strong>SOH</strong><div class="math">sin θ=opposite/hypotenuse</div><div class="example">Use sine when opposite and hypotenuse are involved.</div></div>
+        <div class="formula"><strong>CAH</strong><div class="math">cos θ=adjacent/hypotenuse</div><div class="example">Use cosine when adjacent and hypotenuse are involved.</div></div>
+        <div class="formula"><strong>TOA</strong><div class="math">tan θ=opposite/adjacent</div><div class="example">Use tangent when opposite and adjacent are involved.</div></div>
+        <div class="formula"><strong>Cosecant</strong><div class="math">csc θ=1/sin θ</div><div class="example">The reciprocal of sine.</div></div>
+        <div class="formula"><strong>Secant</strong><div class="math">sec θ=1/cos θ</div><div class="example">The reciprocal of cosine.</div></div>
+        <div class="formula"><strong>Cotangent</strong><div class="math">cot θ=1/tan θ</div><div class="example">The reciprocal of tangent.</div></div>
+      </div>
+      <div class="visual" style="margin-top:12px">
+        <strong>Side names depend on the reference angle θ</strong>
+        <svg viewBox="0 0 430 250" aria-label="Right triangle labeled opposite adjacent and hypotenuse">
+          <polygon points="65,205 340,205 340,45" fill="#e9f6f1" stroke="#064f49" stroke-width="4"/>
+          <rect x="316" y="181" width="24" height="24" fill="none" stroke="#064f49" stroke-width="3"/>
+          <path d="M120 205 A55 55 0 0 0 105 167" fill="none" stroke="#e3a629" stroke-width="4"/>
+          <text x="108" y="179" font-size="20">θ</text>
+          <text x="170" y="228" font-size="18">Adjacent</text>
+          <text x="350" y="135" font-size="18">Opposite</text>
+          <text x="165" y="105" font-size="18" transform="rotate(-30 165 105)">Hypotenuse</text>
+        </svg>
+      </div>
+      <div class="alert" style="margin-top:12px"><strong>Important:</strong> Opposite and adjacent depend on which acute angle is selected as θ. The hypotenuse never changes.</div>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary>3. Right-triangle trigonometry - PDF pages 11-13</summary>
+    <div class="lesson-body">
+      <div class="formula-grid">
+        <div class="formula"><strong>Right Triangle</strong><div class="math">Exactly one angle is 90°</div><div class="example">The other two angles are acute.</div></div>
+        <div class="formula"><strong>Complementary Acute Angles</strong><div class="math">Angle A+Angle B=90°</div><div class="example">A triangle totals 180°.</div></div>
+        <div class="formula"><strong>Pythagorean Theorem</strong><div class="math">c²=a²+b²</div><div class="example">c is the hypotenuse.</div></div>
+        <div class="formula"><strong>Find the Hypotenuse</strong><div class="math">c=√(a²+b²)</div><div class="example">For legs 3 and 4, c=5.</div></div>
+        <div class="formula"><strong>Find Leg a</strong><div class="math">a=√(c²−b²)</div><div class="example">Subtract the square of the known leg.</div></div>
+        <div class="formula"><strong>Find Leg b</strong><div class="math">b=√(c²−a²)</div><div class="example">The hypotenuse must be the value used for c.</div></div>
+      </div>
+      <div class="steps" style="margin-top:12px">
+        <div class="step">Mark the right angle and identify the hypotenuse.</div>
+        <div class="step">Choose the reference angle θ.</div>
+        <div class="step">Label the opposite and adjacent sides relative to θ.</div>
+        <div class="step">Choose SOH, CAH, TOA, or the Pythagorean Theorem.</div>
+        <div class="step">Substitute values, solve, and check whether the answer is reasonable.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary>4. Quick conversion table</summary>
+    <div class="lesson-body">
+      <div class="formula-grid">
+        <div class="formula"><strong>30°</strong><div class="math">π/6</div></div>
+        <div class="formula"><strong>45°</strong><div class="math">π/4</div></div>
+        <div class="formula"><strong>60°</strong><div class="math">π/3</div></div>
+        <div class="formula"><strong>90°</strong><div class="math">π/2</div></div>
+        <div class="formula"><strong>120°</strong><div class="math">2π/3</div></div>
+        <div class="formula"><strong>180°</strong><div class="math">π</div></div>
+        <div class="formula"><strong>270°</strong><div class="math">3π/2</div></div>
+        <div class="formula"><strong>360°</strong><div class="math">2π</div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="lesson">
+    <summary>5. Source-basis note</summary>
+    <div class="lesson-body">
+      <div class="alert"><strong>How the quiz was built:</strong> Definitions, formulas, ratio names, and angle relationships come directly from the PDF. The numerical practice problems are generated applications of the conversion formulas, SOH-CAH-TOA, and Pythagorean formulas shown in the source.</div>
+    </div>
+  </details>
+
+  <div class="card" style="margin-top:14px">
+    <h3>Self-Study Checklist</h3>
+    <div class="checklist">
+      <label class="checkitem"><input type="checkbox" data-check="1"><span>I can identify the vertex and the two rays of an angle.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="2"><span>I can recognize acute, right, obtuse, straight, reflex, and full-rotation angles.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="3"><span>I can convert degrees to radians.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="4"><span>I can convert radians to degrees.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="5"><span>I know SOH-CAH-TOA without looking.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="6"><span>I know the reciprocal ratios csc, sec, and cot.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="7"><span>I can identify opposite, adjacent, and hypotenuse relative to θ.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="8"><span>I can solve a missing side using the Pythagorean Theorem.</span></label>
+      <label class="checkitem"><input type="checkbox" data-check="9"><span>I can solve right-triangle side problems using a trigonometric ratio.</span></label>
+    </div>
+  </div>
+</section>
+
+<section id="setupScreen" class="screen hidden">
+  <div class="card">
+    <span class="eyebrow">QUIZ GENERATOR</span>
+    <h2 style="font-size:clamp(2rem,5vw,3.6rem)">Build your practice exam</h2>
+    <p class="muted">Choose a question type, topic, number of items, and study mode.</p>
+    <div class="setup-grid">
+      <div class="field"><label for="quizType">Question type</label><select id="quizType"><option value="all">Mixed - all types</option><option value="mcq">Multiple Choice (25)</option><option value="tf">True or False (15)</option><option value="identification">Identification (15)</option><option value="problem">Problem Solving (25)</option></select></div>
+      <div class="field"><label for="quizTopic">Topic group</label><select id="quizTopic"><option value="all">All topics</option><option value="angles">Angles and Conversion</option><option value="ratios">Trigonometric Ratios</option><option value="triangles">Right Triangles</option></select></div>
+      <div class="field"><label for="quizCount">Number of items</label><select id="quizCount"><option value="10">10 items</option><option value="20" selected>20 items</option><option value="30">30 items</option><option value="50">50 items</option><option value="all">All available</option></select></div>
+      <div class="field"><label for="quizMode">Mode</label><select id="quizMode"><option value="exam">Exam - answers after submission</option><option value="practice">Practice - check each answer</option></select></div>
+      <div class="field"><label for="quizTime">Time limit</label><select id="quizTime"><option value="0">No timer</option><option value="15">15 minutes</option><option value="30" selected>30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></div>
+      <div class="field"><label>Available after filters</label><div class="count"><span>Matching items</span><strong id="availableCount">80</strong></div></div>
+    </div>
+    <div class="toggle-row"><div><strong>Shuffle questions</strong><div class="muted" style="font-size:.8rem">Creates a different order each attempt.</div></div><label class="switch"><input id="shuffleQuestions" type="checkbox" checked><span class="slider"></span></label></div>
+    <div class="toggle-row"><div><strong>Shuffle choices</strong><div class="muted" style="font-size:.8rem">Applies to choice-based questions.</div></div><label class="switch"><input id="shuffleChoices" type="checkbox" checked><span class="slider"></span></label></div>
+    <div style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn primary" id="startQuiz">Start Quiz</button><button class="btn secondary hidden" id="resumeQuiz">Resume Saved Quiz</button><button class="btn danger hidden" id="deleteQuiz">Delete Saved Quiz</button></div>
+  </div>
+</section>
+
+<section id="quizScreen" class="screen hidden">
+  <div class="quiz-layout">
+    <aside class="card sidebar">
+      <div class="stats"><div class="stat"><span>Question</span><strong id="questionCount">1/20</strong></div><div class="stat"><span>Answered</span><strong id="answeredCount">0</strong></div><div class="stat"><span>Time</span><strong id="timer" class="timer">30:00</strong></div><div class="stat"><span>Flagged</span><strong id="flaggedCount">0</strong></div></div>
+      <div id="palette" class="palette"></div><button class="btn primary" id="submitQuiz" style="width:100%;margin-top:15px">Submit Quiz</button>
+    </aside>
+    <article class="card qcard">
+      <div class="qhead"><div class="tags"><span class="tag" id="typeTag"></span><span class="tag" id="categoryTag"></span><span class="tag hot">★ High Probability</span><span class="tag" id="pageTag"></span></div><button class="btn warning" id="flagBtn">⚐ Flag</button></div>
+      <div id="questionText" class="question"></div><div id="answerArea"></div><div id="feedbackArea"></div>
+      <div class="qactions"><div class="actions"><button class="btn outline" id="previousBtn">← Previous</button><button class="btn secondary hidden" id="checkAnswer">Check Answer</button></div><div class="actions"><button class="btn outline" id="clearAnswer">Clear</button><button class="btn primary" id="nextBtn">Next →</button></div></div>
+    </article>
+  </div>
+</section>
+
+<section id="resultsScreen" class="screen hidden">
+  <div class="card score-wrap">
+    <span class="eyebrow">QUIZ COMPLETED</span><h2 style="font-size:2.6rem">Your Score</h2>
+    <div id="scoreRing" class="score-ring"><strong id="scorePercent">0%</strong></div><h3 id="scoreText">0 out of 0 correct</h3><p id="scoreMessage" class="muted"></p>
+    <div class="result-stats"><div class="stat"><span>Correct</span><strong id="correctResult">0</strong></div><div class="stat"><span>Incorrect</span><strong id="wrongResult">0</strong></div><div class="stat"><span>Unanswered</span><strong id="blankResult">0</strong></div><div class="stat"><span>Time Used</span><strong id="timeResult">0m</strong></div></div>
+    <div class="result-actions" style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap"><button class="btn primary" data-go="setup">Create Another Quiz</button><button class="btn secondary" id="showWrong">Show Incorrect Only</button><button class="btn outline" onclick="window.print()">Print Review</button></div>
+  </div>
+  <div class="breakdown"><div class="card"><h3>By Question Type</h3><div id="typeBreakdown"></div></div><div class="card"><h3>By Topic Group</h3><div id="topicBreakdown"></div></div></div>
+  <div class="card" style="margin-top:16px"><div style="display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap"><div><h3 style="margin:0">Answer Review</h3><p class="muted" style="margin:4px 0 0">Correct answers and explanations</p></div><select id="reviewFilter" style="width:auto"><option value="all">All questions</option><option value="wrong">Incorrect and unanswered</option><option value="correct">Correct only</option></select></div><div id="reviewList" class="review-list"></div></div>
+</section>
+</main>
+<footer>Developed by RekzBanz • Based on the uploaded Trigonometry Basics presentation</footer>
+</div>
+
+<script>
+(() => {
+"use strict";
+const BANK=[{"id": 1, "type": "mcq", "category": "Angles", "page": "4", "question": "What is an angle?", "options": ["A figure formed when two rays meet at a common endpoint", "A line with no endpoint", "A triangle with three equal sides", "A circle divided into four parts"], "answer": "A figure formed when two rays meet at a common endpoint", "solution": "Page 4 defines an angle as being formed when two rays meet at a common endpoint."}, {"id": 2, "type": "mcq", "category": "Angles", "page": "4", "question": "What is the common endpoint of two rays called?", "options": ["Vertex", "Hypotenuse", "Radius", "Adjacent side"], "answer": "Vertex", "solution": "The common endpoint where the rays meet is the vertex."}, {"id": 3, "type": "mcq", "category": "Angles", "page": "4,6", "question": "Which two units are used in the PDF to measure angles?", "options": ["Degrees and radians", "Meters and centimeters", "Seconds and minutes", "Sine and cosine"], "answer": "Degrees and radians", "solution": "The presentation identifies degrees and radians as the two common angle units."}, {"id": 4, "type": "mcq", "category": "Angle Types", "page": "5", "question": "Which type of angle measures exactly 90°?", "options": ["Right angle", "Acute angle", "Obtuse angle", "Reflex angle"], "answer": "Right angle", "solution": "A 90° angle is a right angle."}, {"id": 5, "type": "mcq", "category": "Angle Types", "page": "5", "question": "Which type of angle is smaller than a right angle?", "options": ["Acute angle", "Obtuse angle", "Straight angle", "Full rotation angle"], "answer": "Acute angle", "solution": "The page 5 diagram shows the acute angle as smaller than the right angle."}, {"id": 6, "type": "mcq", "category": "Angle Types", "page": "5", "question": "Which type of angle is larger than a right angle but smaller than a straight angle?", "options": ["Obtuse angle", "Acute angle", "Full rotation angle", "Zero angle"], "answer": "Obtuse angle", "solution": "The page 5 diagram places the obtuse angle between right and straight angles."}, {"id": 7, "type": "mcq", "category": "Angle Types", "page": "5", "question": "Which type of angle represents a half-turn?", "options": ["Straight angle", "Right angle", "Reflex angle", "Acute angle"], "answer": "Straight angle", "solution": "A straight angle represents half of a complete rotation."}, {"id": 8, "type": "mcq", "category": "Angle Types", "page": "5", "question": "Which type of angle represents one complete revolution?", "options": ["Full rotation angle", "Straight angle", "Obtuse angle", "Right angle"], "answer": "Full rotation angle", "solution": "The page 5 diagram labels one complete turn as a full rotation angle."}, {"id": 9, "type": "mcq", "category": "Degrees and Radians", "page": "6", "question": "How many degrees are in one complete revolution?", "options": ["360°", "180°", "90°", "2π°"], "answer": "360°", "solution": "Page 6 states that one revolution is 360°."}, {"id": 10, "type": "mcq", "category": "Degrees and Radians", "page": "6", "question": "How many radians are in one complete revolution?", "options": ["2π radians", "π radians", "π/2 radians", "360 radians"], "answer": "2π radians", "solution": "Page 6 states that one complete revolution equals 2π radians."}, {"id": 11, "type": "mcq", "category": "Angle Conversion", "page": "7", "question": "Which equality is the basis for converting degrees and radians?", "options": ["180°=π radians", "360°=π radians", "90°=π radians", "180°=2π radians"], "answer": "180°=π radians", "solution": "The conversion diagram on page 7 is based on 180°=π radians."}, {"id": 12, "type": "mcq", "category": "Angle Conversion", "page": "7", "question": "Which factor converts degrees to radians?", "options": ["π/180", "180/π", "2π/360° squared", "π/360"], "answer": "π/180", "solution": "Multiply a degree measure by π radians/180°."}, {"id": 13, "type": "mcq", "category": "Angle Conversion", "page": "7", "question": "Which factor converts radians to degrees?", "options": ["180/π", "π/180", "360/π", "π/360"], "answer": "180/π", "solution": "Multiply a radian measure by 180°/π radians."}, {"id": 14, "type": "mcq", "category": "Trigonometric Ratios", "page": "9-10", "question": "Which ratio represents sine?", "options": ["Opposite/Hypotenuse", "Adjacent/Hypotenuse", "Opposite/Adjacent", "Hypotenuse/Opposite"], "answer": "Opposite/Hypotenuse", "solution": "SOH means sine equals opposite over hypotenuse."}, {"id": 15, "type": "mcq", "category": "Trigonometric Ratios", "page": "9-10", "question": "Which ratio represents cosine?", "options": ["Adjacent/Hypotenuse", "Opposite/Hypotenuse", "Opposite/Adjacent", "Hypotenuse/Adjacent"], "answer": "Adjacent/Hypotenuse", "solution": "CAH means cosine equals adjacent over hypotenuse."}, {"id": 16, "type": "mcq", "category": "Trigonometric Ratios", "page": "9-10", "question": "Which ratio represents tangent?", "options": ["Opposite/Adjacent", "Adjacent/Hypotenuse", "Opposite/Hypotenuse", "Hypotenuse/Opposite"], "answer": "Opposite/Adjacent", "solution": "TOA means tangent equals opposite over adjacent."}, {"id": 17, "type": "mcq", "category": "Reciprocal Ratios", "page": "10", "question": "Which reciprocal ratio is equal to 1/sin θ?", "options": ["csc θ", "sec θ", "cot θ", "tan θ"], "answer": "csc θ", "solution": "The reciprocal of sine is cosecant."}, {"id": 18, "type": "mcq", "category": "Reciprocal Ratios", "page": "10", "question": "Which reciprocal ratio is equal to 1/cos θ?", "options": ["sec θ", "csc θ", "cot θ", "sin θ"], "answer": "sec θ", "solution": "The reciprocal of cosine is secant."}, {"id": 19, "type": "mcq", "category": "Reciprocal Ratios", "page": "10", "question": "Which reciprocal ratio is equal to 1/tan θ?", "options": ["cot θ", "sec θ", "csc θ", "cos θ"], "answer": "cot θ", "solution": "The reciprocal of tangent is cotangent."}, {"id": 20, "type": "mcq", "category": "Right Triangles", "page": "12", "question": "How many 90° angles does a right triangle have?", "options": ["Exactly one", "Exactly two", "Exactly three", "None"], "answer": "Exactly one", "solution": "Page 12 defines a right triangle as having exactly one 90° angle."}, {"id": 21, "type": "mcq", "category": "Right Triangles", "page": "12", "question": "What is true about the two non-right angles of a right triangle?", "options": ["They are acute and add to 90°", "They are both right angles", "They add to 180°", "They are both obtuse"], "answer": "They are acute and add to 90°", "solution": "The two remaining angles are acute and complementary."}, {"id": 22, "type": "mcq", "category": "Right Triangles", "page": "9,13", "question": "Which side is always opposite the 90° angle?", "options": ["Hypotenuse", "Adjacent side", "Opposite leg", "Base only"], "answer": "Hypotenuse", "solution": "The hypotenuse lies opposite the right angle and is the longest side."}, {"id": 23, "type": "mcq", "category": "Pythagorean Theorem", "page": "13", "question": "Which equation is the Pythagorean Theorem?", "options": ["c²=a²+b²", "c=a+b", "a²=c²+b²", "c²=a+b"], "answer": "c²=a²+b²", "solution": "Page 13 shows c²=a²+b², where c is the hypotenuse."}, {"id": 24, "type": "mcq", "category": "Pythagorean Theorem", "page": "13", "question": "Which formula finds the hypotenuse c?", "options": ["c=√(a²+b²)", "c=a²+b²", "c=√(a²−b²)", "c=a+b"], "answer": "c=√(a²+b²)", "solution": "Take the square root of both sides of c²=a²+b²."}, {"id": 25, "type": "mcq", "category": "Right Triangle Applications", "page": "9,13", "question": "A right triangle has legs 3 and 4. What is its hypotenuse?", "options": ["5", "6", "7", "4.5"], "answer": "5", "solution": "c=√(3²+4²)=√25=5."}, {"id": 26, "type": "tf", "category": "Angles", "page": "4", "question": "An angle is formed by two rays meeting at a common endpoint.", "answer": "True", "solution": "This is the definition on page 4."}, {"id": 27, "type": "tf", "category": "Angles", "page": "4", "question": "The common endpoint of an angle is called the hypotenuse.", "answer": "False", "solution": "It is called the vertex."}, {"id": 28, "type": "tf", "category": "Degrees and Radians", "page": "6", "question": "One complete revolution equals 360°.", "answer": "True", "solution": "Page 6 gives 360° for one revolution."}, {"id": 29, "type": "tf", "category": "Degrees and Radians", "page": "6", "question": "One complete revolution equals π radians.", "answer": "False", "solution": "It equals 2π radians."}, {"id": 30, "type": "tf", "category": "Angle Conversion", "page": "7", "question": "To convert degrees to radians, multiply by π/180.", "answer": "True", "solution": "This is the conversion factor shown on page 7."}, {"id": 31, "type": "tf", "category": "Angle Conversion", "page": "7", "question": "To convert radians to degrees, multiply by π/180.", "answer": "False", "solution": "Multiply by 180/π."}, {"id": 32, "type": "tf", "category": "Trigonometric Ratios", "page": "9-10", "question": "Sine is opposite divided by hypotenuse.", "answer": "True", "solution": "SOH: sin θ=opposite/hypotenuse."}, {"id": 33, "type": "tf", "category": "Trigonometric Ratios", "page": "9-10", "question": "Cosine is opposite divided by adjacent.", "answer": "False", "solution": "Cosine is adjacent divided by hypotenuse."}, {"id": 34, "type": "tf", "category": "Trigonometric Ratios", "page": "9-10", "question": "Tangent is opposite divided by adjacent.", "answer": "True", "solution": "TOA: tan θ=opposite/adjacent."}, {"id": 35, "type": "tf", "category": "Reciprocal Ratios", "page": "10", "question": "Cosecant is the reciprocal of sine.", "answer": "True", "solution": "csc θ=1/sin θ."}, {"id": 36, "type": "tf", "category": "Reciprocal Ratios", "page": "10", "question": "Secant is the reciprocal of tangent.", "answer": "False", "solution": "Secant is the reciprocal of cosine."}, {"id": 37, "type": "tf", "category": "Right Triangles", "page": "12", "question": "A right triangle contains exactly one 90° angle.", "answer": "True", "solution": "This is the definition on page 12."}, {"id": 38, "type": "tf", "category": "Right Triangles", "page": "12", "question": "The two acute angles of a right triangle add up to 90°.", "answer": "True", "solution": "The total is 180°, so the two remaining angles sum to 90°."}, {"id": 39, "type": "tf", "category": "Pythagorean Theorem", "page": "13", "question": "In c²=a²+b², c represents the hypotenuse.", "answer": "True", "solution": "The diagram on page 13 labels c as the hypotenuse."}, {"id": 40, "type": "tf", "category": "Pythagorean Theorem", "page": "13", "question": "The Pythagorean Theorem applies to every triangle regardless of its angles.", "answer": "False", "solution": "The theorem in this lesson is for right triangles."}, {"id": 41, "type": "identification", "category": "Angles", "page": "4", "question": "What is the common endpoint of the two rays of an angle called?", "accepted": ["vertex", "the vertex"], "answerDisplay": "Vertex", "solution": "The rays meet at the vertex."}, {"id": 42, "type": "identification", "category": "Angle Types", "page": "5", "question": "Name an angle that measures exactly 90°.", "accepted": ["right angle", "a right angle"], "answerDisplay": "Right angle", "solution": "A right angle measures 90°."}, {"id": 43, "type": "identification", "category": "Angle Types", "page": "5", "question": "Name an angle that represents a half-turn.", "accepted": ["straight angle", "a straight angle"], "answerDisplay": "Straight angle", "solution": "A half-turn is a straight angle."}, {"id": 44, "type": "identification", "category": "Angle Types", "page": "5", "question": "Name an angle that represents one complete revolution.", "accepted": ["full rotation angle", "full rotation", "complete angle", "full angle"], "answerDisplay": "Full rotation angle", "solution": "The page 5 diagram uses the label full rotation angle."}, {"id": 45, "type": "identification", "category": "Degrees and Radians", "page": "6", "question": "What unit is abbreviated rad?", "accepted": ["radian", "radians"], "answerDisplay": "Radian", "solution": "rad is the abbreviation for radian."}, {"id": 46, "type": "identification", "category": "Trigonometric Ratios", "page": "9-10", "question": "Which trigonometric ratio is remembered by SOH?", "accepted": ["sine", "sin"], "answerDisplay": "Sine", "solution": "SOH stands for sine=opposite/hypotenuse."}, {"id": 47, "type": "identification", "category": "Trigonometric Ratios", "page": "9-10", "question": "Which trigonometric ratio is remembered by CAH?", "accepted": ["cosine", "cos"], "answerDisplay": "Cosine", "solution": "CAH stands for cosine=adjacent/hypotenuse."}, {"id": 48, "type": "identification", "category": "Trigonometric Ratios", "page": "9-10", "question": "Which trigonometric ratio is remembered by TOA?", "accepted": ["tangent", "tan"], "answerDisplay": "Tangent", "solution": "TOA stands for tangent=opposite/adjacent."}, {"id": 49, "type": "identification", "category": "Reciprocal Ratios", "page": "10", "question": "What is the reciprocal of sine?", "accepted": ["cosecant", "csc"], "answerDisplay": "Cosecant (csc)", "solution": "csc θ=1/sin θ."}, {"id": 50, "type": "identification", "category": "Reciprocal Ratios", "page": "10", "question": "What is the reciprocal of cosine?", "accepted": ["secant", "sec"], "answerDisplay": "Secant (sec)", "solution": "sec θ=1/cos θ."}, {"id": 51, "type": "identification", "category": "Reciprocal Ratios", "page": "10", "question": "What is the reciprocal of tangent?", "accepted": ["cotangent", "cot"], "answerDisplay": "Cotangent (cot)", "solution": "cot θ=1/tan θ."}, {"id": 52, "type": "identification", "category": "Right Triangles", "page": "9,13", "question": "What is the longest side of a right triangle called?", "accepted": ["hypotenuse", "the hypotenuse"], "answerDisplay": "Hypotenuse", "solution": "It lies opposite the right angle."}, {"id": 53, "type": "identification", "category": "Right Triangles", "page": "9", "question": "What is the side directly across from the reference angle called?", "accepted": ["opposite", "opposite side", "the opposite side"], "answerDisplay": "Opposite side", "solution": "The side across from θ is the opposite side."}, {"id": 54, "type": "identification", "category": "Right Triangles", "page": "9", "question": "What is the non-hypotenuse side beside the reference angle called?", "accepted": ["adjacent", "adjacent side", "the adjacent side"], "answerDisplay": "Adjacent side", "solution": "The leg beside θ is the adjacent side."}, {"id": 55, "type": "identification", "category": "Pythagorean Theorem", "page": "13", "question": "Name the theorem represented by c²=a²+b².", "accepted": ["pythagorean theorem", "the pythagorean theorem"], "answerDisplay": "Pythagorean Theorem", "solution": "This theorem relates the three sides of a right triangle."}, {"id": 56, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 30° to radians.", "options": ["π/6", "π/3", "π/4", "2π/3"], "answer": "π/6", "solution": "30°×π/180=π/6."}, {"id": 57, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 45° to radians.", "options": ["π/4", "π/6", "π/3", "3π/4"], "answer": "π/4", "solution": "45°×π/180=π/4."}, {"id": 58, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 60° to radians.", "options": ["π/3", "π/6", "2π/3", "π/2"], "answer": "π/3", "solution": "60°×π/180=π/3."}, {"id": 59, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 90° to radians.", "options": ["π/2", "π", "2π", "π/4"], "answer": "π/2", "solution": "90°×π/180=π/2."}, {"id": 60, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 120° to radians.", "options": ["2π/3", "π/3", "3π/2", "5π/6"], "answer": "2π/3", "solution": "120°×π/180=2π/3."}, {"id": 61, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 180° to radians.", "options": ["π", "2π", "π/2", "3π/2"], "answer": "π", "solution": "The basic equivalence is 180°=π radians."}, {"id": 62, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 270° to radians.", "options": ["3π/2", "2π/3", "5π/4", "2π"], "answer": "3π/2", "solution": "270°×π/180=3π/2."}, {"id": 63, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 360° to radians.", "options": ["2π", "π", "3π/2", "4π"], "answer": "2π", "solution": "One complete revolution is 2π radians."}, {"id": 64, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert π/6 radians to degrees.", "options": ["30°", "45°", "60°", "90°"], "answer": "30°", "solution": "(π/6)×180/π=30°."}, {"id": 65, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert π/4 radians to degrees.", "options": ["45°", "30°", "60°", "90°"], "answer": "45°", "solution": "(π/4)×180/π=45°."}, {"id": 66, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert π/3 radians to degrees.", "options": ["60°", "30°", "90°", "120°"], "answer": "60°", "solution": "(π/3)×180/π=60°."}, {"id": 67, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert π/2 radians to degrees.", "options": ["90°", "45°", "180°", "270°"], "answer": "90°", "solution": "(π/2)×180/π=90°."}, {"id": 68, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 2π/3 radians to degrees.", "options": ["120°", "60°", "135°", "240°"], "answer": "120°", "solution": "(2π/3)×180/π=120°."}, {"id": 69, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert π radians to degrees.", "options": ["180°", "90°", "360°", "270°"], "answer": "180°", "solution": "π×180/π=180°."}, {"id": 70, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 3π/2 radians to degrees.", "options": ["270°", "180°", "360°", "135°"], "answer": "270°", "solution": "(3π/2)×180/π=270°."}, {"id": 71, "type": "problem", "category": "Angle Conversion", "page": "7", "question": "Convert 2π radians to degrees.", "options": ["360°", "180°", "270°", "720°"], "answer": "360°", "solution": "2π×180/π=360°."}, {"id": 72, "type": "problem", "category": "Pythagorean Theorem", "page": "13", "question": "A right triangle has legs 5 and 12. Find the hypotenuse.", "options": ["13", "17", "7", "10"], "answer": "13", "solution": "c=√(5²+12²)=√169=13."}, {"id": 73, "type": "problem", "category": "Pythagorean Theorem", "page": "13", "question": "A right triangle has hypotenuse 10 and one leg 6. Find the other leg.", "options": ["8", "4", "16", "√136"], "answer": "8", "solution": "a=√(10²−6²)=√64=8."}, {"id": 74, "type": "problem", "category": "Pythagorean Theorem", "page": "13", "question": "A right triangle has hypotenuse 13 and one leg 5. Find the other leg.", "options": ["12", "8", "18", "√194"], "answer": "12", "solution": "b=√(13²−5²)=√144=12."}, {"id": 75, "type": "problem", "category": "SOH-CAH-TOA", "page": "9", "question": "For a right triangle, opposite=3 and hypotenuse=5. Find sin θ.", "options": ["3/5", "4/5", "3/4", "5/3"], "answer": "3/5", "solution": "sin θ=opposite/hypotenuse=3/5."}, {"id": 76, "type": "problem", "category": "SOH-CAH-TOA", "page": "9", "question": "For a right triangle, adjacent=4 and hypotenuse=5. Find cos θ.", "options": ["4/5", "3/5", "3/4", "5/4"], "answer": "4/5", "solution": "cos θ=adjacent/hypotenuse=4/5."}, {"id": 77, "type": "problem", "category": "SOH-CAH-TOA", "page": "9", "question": "For a right triangle, opposite=6 and adjacent=8. Find tan θ.", "options": ["3/4", "4/3", "6/14", "8/6 simplified to 4/3"], "answer": "3/4", "solution": "tan θ=opposite/adjacent=6/8=3/4."}, {"id": 78, "type": "problem", "category": "SOH-CAH-TOA", "page": "9", "question": "If sin θ=0.5 and the hypotenuse is 10, find the opposite side.", "options": ["5", "20", "10.5", "2"], "answer": "5", "solution": "0.5=opposite/10, so opposite=5."}, {"id": 79, "type": "problem", "category": "SOH-CAH-TOA", "page": "9", "question": "If cos θ=0.8 and the hypotenuse is 15, find the adjacent side.", "options": ["12", "18.75", "7.5", "3"], "answer": "12", "solution": "0.8=adjacent/15, so adjacent=12."}, {"id": 80, "type": "problem", "category": "SOH-CAH-TOA", "page": "9", "question": "If tan θ=0.75 and the adjacent side is 12, find the opposite side.", "options": ["9", "16", "12.75", "6"], "answer": "9", "solution": "0.75=opposite/12, so opposite=9."}];
+const TYPE_NAMES={mcq:"Multiple Choice",tf:"True or False",identification:"Identification",problem:"Problem Solving"};
+const screens={home:document.getElementById("homeScreen"),reviewer:document.getElementById("reviewerScreen"),setup:document.getElementById("setupScreen"),quiz:document.getElementById("quizScreen"),results:document.getElementById("resultsScreen")};
+const $=id=>document.getElementById(id);
+let state={questions:[],index:0,answers:{},flags:{},checked:{},mode:"exam",remaining:0,total:0,start:0,timerId:null,submitted:false,outcomes:[]};
+
+function topicGroup(q){const c=q.category.toLowerCase();if(c.includes("ratio")||c.includes("soh"))return"ratios";if(c.includes("triangle")||c.includes("pythagorean"))return"triangles";return"angles"}
+function topicName(q){return topicGroup(q)==="angles"?"Angles and Conversion":topicGroup(q)==="ratios"?"Trigonometric Ratios":"Right Triangles"}
+function show(name){Object.entries(screens).forEach(([k,v])=>v.classList.toggle("hidden",k!==name));window.scrollTo({top:0,behavior:"smooth"})}
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function normalize(v){return String(v??"").toLowerCase().trim().replace(/[−–—]/g,"-").replace(/[.,;:!?]/g,"").replace(/-/g," ").replace(/\s+/g," ").trim()}
+function isCorrect(q,v){if(v===undefined||v===null||String(v).trim()==="")return false;if(q.type==="identification")return q.accepted.some(a=>normalize(a)===normalize(v));return v===q.answer}
+function pool(){const t=$("quizType").value,p=$("quizTopic").value;return BANK.filter(q=>(t==="all"||q.type===t)&&(p==="all"||topicGroup(q)===p))}
+function updateAvailable(){$("availableCount").textContent=pool().length}
+function save(){if(state.submitted||!state.questions.length)return;localStorage.setItem("trigo_basics_quiz",JSON.stringify({...state,timerId:null}));refreshSaved()}
+function refreshSaved(){const has=!!localStorage.getItem("trigo_basics_quiz");$("resumeQuiz").classList.toggle("hidden",!has);$("deleteQuiz").classList.toggle("hidden",!has)}
+
+function start(){
+ let p=pool();if(!p.length){alert("No items match the selected filters.");return}
+ if($("shuffleQuestions").checked)p=shuffle(p);
+ const wanted=$("quizCount").value==="all"?p.length:Number($("quizCount").value);
+ p=p.slice(0,Math.min(wanted,p.length)).map(q=>{const copy={...q};if(copy.options&&$("shuffleChoices").checked)copy.options=shuffle(copy.options);return copy});
+ const mins=Number($("quizTime").value);
+ state={questions:p,index:0,answers:{},flags:{},checked:{},mode:$("quizMode").value,remaining:mins*60,total:mins*60,start:Date.now(),timerId:null,submitted:false,outcomes:[]};
+ $("checkAnswer").classList.toggle("hidden",state.mode!=="practice");show("quiz");buildPalette();render();startTimer();save();
+}
+function resume(){try{const s=JSON.parse(localStorage.getItem("trigo_basics_quiz"));if(!s||!s.questions?.length)throw new Error();state={...s,timerId:null,submitted:false};$("checkAnswer").classList.toggle("hidden",state.mode!=="practice");show("quiz");buildPalette();render();startTimer()}catch(e){localStorage.removeItem("trigo_basics_quiz");refreshSaved();alert("Saved quiz could not be restored.")}}
+function buildPalette(){$("palette").innerHTML=state.questions.map((q,i)=>`<button class="qnav" data-i="${i}">${i+1}</button>`).join("");$("palette").querySelectorAll(".qnav").forEach(b=>b.onclick=()=>{state.index=Number(b.dataset.i);render();save()})}
+function updatePalette(){$("palette").querySelectorAll(".qnav").forEach((b,i)=>{const q=state.questions[i],v=state.answers[q.id];b.classList.toggle("current",i===state.index);b.classList.toggle("answered",v!==undefined&&String(v).trim()!=="");b.classList.toggle("flagged",!!state.flags[q.id])})}
+function updateStats(){$("answeredCount").textContent=state.questions.filter(q=>state.answers[q.id]!==undefined&&String(state.answers[q.id]).trim()!=="").length;$("flaggedCount").textContent=state.questions.filter(q=>state.flags[q.id]).length;updatePalette()}
+
+function render(){
+ const q=state.questions[state.index];if(!q)return;
+ $("questionCount").textContent=`${state.index+1}/${state.questions.length}`;$("typeTag").textContent=TYPE_NAMES[q.type];$("categoryTag").textContent=q.category;$("pageTag").textContent=`PDF p. ${q.page}`;$("questionText").textContent=q.question;$("feedbackArea").innerHTML="";
+ $("flagBtn").textContent=state.flags[q.id]?"⚑ Flagged":"⚐ Flag";$("flagBtn").className="btn "+(state.flags[q.id]?"danger":"warning");$("previousBtn").disabled=state.index===0;$("nextBtn").textContent=state.index===state.questions.length-1?"Finish →":"Next →";
+ const v=state.answers[q.id]??"";
+ if(q.type==="identification"){
+   $("answerArea").innerHTML=`<input id="textAnswer" type="text" autocomplete="off" placeholder="Type the term or answer" value="${esc(v)}"><p class="muted" style="font-size:.8rem">Common abbreviations such as sin, cos, tan, csc, sec, and cot are accepted.</p>`;
+   const input=$("textAnswer");input.oninput=()=>{state.answers[q.id]=input.value;updateStats();save();if(state.mode==="practice"&&state.checked[q.id])feedback(q)};setTimeout(()=>input.focus(),50);
+ }else{
+   const opts=q.type==="tf"?["True","False"]:q.options;
+   $("answerArea").innerHTML=`<div class="options">${opts.map((o,i)=>`<label class="option ${v===o?"selected":""}" data-v="${esc(o)}"><input type="radio" name="answer" ${v===o?"checked":""}><strong>${String.fromCharCode(65+i)}.</strong><span>${esc(o)}</span></label>`).join("")}</div>`;
+   $("answerArea").querySelectorAll(".option").forEach(el=>el.onclick=()=>{state.answers[q.id]=el.dataset.v;$("answerArea").querySelectorAll(".option").forEach(x=>x.classList.toggle("selected",x===el));updateStats();save();if(state.mode==="practice"&&state.checked[q.id])feedback(q)});
+ }
+ if(state.mode==="practice"&&state.checked[q.id])feedback(q);updateStats();
+}
+function feedback(q){const v=state.answers[q.id],ok=isCorrect(q,v);$("feedbackArea").innerHTML=`<div class="feedback ${ok?"good":"bad"}"><strong>${ok?"Correct!":"Incorrect."}</strong>${ok?"":`<div>Correct answer: <b>${esc(q.answerDisplay||q.answer)}</b></div>`}<div>${esc(q.solution)}</div></div>`;if(q.type!=="identification"){$("answerArea").querySelectorAll(".option").forEach(el=>{el.classList.toggle("correct",el.dataset.v===q.answer);el.classList.toggle("wrong",el.dataset.v===v&&v!==q.answer)})}}
+function checkCurrent(){const q=state.questions[state.index],v=state.answers[q.id];if(v===undefined||String(v).trim()===""){alert("Answer the question first.");return}state.checked[q.id]=true;feedback(q);save()}
+function next(){if(state.index<state.questions.length-1){state.index++;render();save()}else if(confirm("You reached the last question. Submit now?"))submit(false)}
+function startTimer(){clearInterval(state.timerId);if(state.total<=0){$("timer").textContent="No limit";return}timerText();state.timerId=setInterval(()=>{state.remaining--;timerText();save();if(state.remaining<=0){clearInterval(state.timerId);alert("Time is up. The quiz will be submitted.");submit(true)}},1000)}
+function timerText(){if(state.total<=0){$("timer").textContent="No limit";return}const s=Math.max(0,state.remaining);$("timer").textContent=`${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;$("timer").classList.toggle("danger",s<=60)}
+function submit(auto){if(state.submitted)return;const blank=state.questions.filter(q=>state.answers[q.id]===undefined||String(state.answers[q.id]).trim()==="").length;if(!auto&&blank&&!confirm(`You have ${blank} unanswered item(s). Submit anyway?`))return;state.submitted=true;clearInterval(state.timerId);localStorage.removeItem("trigo_basics_quiz");refreshSaved();results()}
+
+function results(){
+ let c=0,b=0;state.outcomes=state.questions.map(q=>{const v=state.answers[q.id],blank=v===undefined||String(v).trim()==="",ok=!blank&&isCorrect(q,v);if(ok)c++;if(blank)b++;return{q,v,blank,ok}});
+ const w=state.questions.length-c-b,pct=Math.round(c/state.questions.length*100),used=state.total>0?state.total-state.remaining:Math.floor((Date.now()-state.start)/1000);
+ $("scoreRing").style.setProperty("--angle",`${pct*3.6}deg`);$("scorePercent").textContent=pct+"%";$("scoreText").textContent=`${c} out of ${state.questions.length} correct`;$("correctResult").textContent=c;$("wrongResult").textContent=w;$("blankResult").textContent=b;$("timeResult").textContent=`${Math.floor(used/60)}m ${used%60}s`;
+ $("scoreMessage").textContent=pct>=90?"Excellent. You are strongly prepared for the covered trigonometry basics.":pct>=75?"Good work. Review the missed conversions and ratio choices.":pct>=60?"You know many basics, but need more conversion and right-triangle practice.":"Study one lesson at a time, memorize SOH-CAH-TOA, then retry a 10-item practice set.";
+ renderBreakdowns();$("reviewFilter").value="all";renderReview("all");show("results");
+}
+function renderBreakdowns(){
+ function rows(groups){return Object.entries(groups).map(([name,list])=>{const good=list.filter(o=>o.ok).length,p=Math.round(good/list.length*100);return `<div class="break-row"><span>${esc(name)}</span><div class="bar"><i style="width:${p}%"></i></div><strong>${p}%</strong></div>`}).join("")}
+ const byType={},byTopic={};state.outcomes.forEach(o=>{(byType[TYPE_NAMES[o.q.type]]??=[]).push(o);(byTopic[topicName(o.q)]??=[]).push(o)});$("typeBreakdown").innerHTML=rows(byType);$("topicBreakdown").innerHTML=rows(byTopic);
+}
+function renderReview(filter){let rows=state.outcomes;if(filter==="wrong")rows=rows.filter(o=>!o.ok);if(filter==="correct")rows=rows.filter(o=>o.ok);$("reviewList").innerHTML=rows.map((o,i)=>`<div class="review-item ${o.ok?"good":""}"><h4>${i+1}. ${esc(o.q.question)} <span class="tag">${TYPE_NAMES[o.q.type]}</span></h4><p><strong>Your answer:</strong> ${o.blank?"<em>Unanswered</em>":esc(o.v)}</p><p><strong>Correct answer:</strong> ${esc(o.q.answerDisplay||o.q.answer)}</p><p><strong>Explanation:</strong> ${esc(o.q.solution)}</p></div>`).join("")||`<p class="muted">No items match this filter.</p>`}
+
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{const target=b.dataset.go;if(target!=="quiz"&&!screens.quiz.classList.contains("hidden")&&!state.submitted){if(!confirm("Leave the current quiz? Your progress will remain saved."))return;clearInterval(state.timerId)}show(target);refreshSaved()});
+["quizType","quizTopic"].forEach(id=>$(id).onchange=updateAvailable);
+$("startQuiz").onclick=start;$("resumeQuiz").onclick=resume;$("deleteQuiz").onclick=()=>{if(confirm("Delete the saved quiz?")){localStorage.removeItem("trigo_basics_quiz");refreshSaved()}};
+$("previousBtn").onclick=()=>{if(state.index>0){state.index--;render();save()}};$("nextBtn").onclick=next;$("checkAnswer").onclick=checkCurrent;
+$("clearAnswer").onclick=()=>{const q=state.questions[state.index];delete state.answers[q.id];delete state.checked[q.id];render();save()};
+$("flagBtn").onclick=()=>{const q=state.questions[state.index];state.flags[q.id]=!state.flags[q.id];render();save()};$("submitQuiz").onclick=()=>submit(false);
+$("reviewFilter").onchange=e=>renderReview(e.target.value);$("showWrong").onclick=()=>{$("reviewFilter").value="wrong";renderReview("wrong");$("reviewList").scrollIntoView({behavior:"smooth"})};
+document.querySelectorAll("[data-check]").forEach(cb=>{cb.checked=localStorage.getItem("trigo_basics_check_"+cb.dataset.check)==="1";cb.onchange=()=>localStorage.setItem("trigo_basics_check_"+cb.dataset.check,cb.checked?"1":"0")});
+document.addEventListener("keydown",e=>{if(!screens.quiz.classList.contains("hidden")){if(e.key==="ArrowRight")next();if(e.key==="ArrowLeft"&&state.index>0){state.index--;render();save()}}});
+updateAvailable();refreshSaved();show("home");
+})();
+</script>
+</body>
+</html>
